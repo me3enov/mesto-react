@@ -1,7 +1,8 @@
 function Footer() {
+  const date = new Date().getFullYear();
   return (
     <footer className="footer root__footer" aria-label="Footer">
-      <p className="footer__copyright">&copy; 2021. Артем Мезенов</p>
+      <p className="footer__copyright">&copy; {date} Артем Мезенов</p>
     </footer>
   );
 }

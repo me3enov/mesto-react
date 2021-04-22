@@ -21,7 +21,6 @@ function Main(props) {
   }, []);
 
   return (
-    <>
     <main className="content">
       <section className="profile root__profile">
         <button className="profile__avatar"
@@ -51,12 +50,11 @@ function Main(props) {
             <Card
               key={card._id}
               card={card}
-              onCardDelete={props.onCardDelete}
-              onCardClick={props.onCardClick}/>)}
+              onCardClick={props.onCardClick}
+              onBinClick={props.onBinClick}/>)} 
         </ul>
       </section>
     </main>
-    </>
   );
 }
 

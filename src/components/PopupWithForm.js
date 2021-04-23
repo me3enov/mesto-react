@@ -1,7 +1,17 @@
 function PopupWithForm (props) {
 
+  function handleClickClose(evt) {
+    if (evt.target === evt.currentTarget) {
+      props.onClose();
+    }
+  }
+
   return (
-    <div className={(props.isOpen ? `popup popup_place_${props.name} popup_opened` : `popup popup_place_${props.name}`)}>
+    <div
+      onClick={handleClickClose}
+      className={(props.isOpen ? `popup popup_place_${props.name}
+        popup_opened` :
+        `popup popup_place_${props.name}`)}>
       <div className="popup__container">
         <button
           type="button"
@@ -16,7 +26,6 @@ function PopupWithForm (props) {
           noValidate>
             <h2 className="form__title">{props.title}</h2>
             <fieldset className="form__input-container">
-              {props.children}
               <button
               type="submit"
               className="form__submit-button"

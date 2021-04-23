@@ -10,7 +10,7 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
   const [isCardDeletePopupOpen, setIsCardDeletePopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState('');
+  const [selectedCard, setSelectedCard] = useState(null);
 
   function handleEditProfileClick() {
     setEditProfilePopupOpen(true);
@@ -24,8 +24,8 @@ function App() {
     setEditAvatarPopupOpen(true);
   };
 
-  function handleCardClick(props) {
-    setSelectedCard(props);
+  function handleCardClick(card) {
+    setSelectedCard(card);
   }
 
   function handleDeleteCardClick() {
@@ -37,28 +37,17 @@ function App() {
     setAddPlacePopupOpen(false);
     setEditAvatarPopupOpen(false);
     setIsCardDeletePopupOpen(false);
-    setSelectedCard('')
+    setSelectedCard(null)
   }
 
   useEffect(() => {
-    function handleClickClose(evt) {
-      if (evt.target === evt.currentTarget) {
-        closeAllPopups();
-      }
-    }
-
     function handleEscClose(evt) {
       if (evt.key === 'Escape') {
         closeAllPopups();
       }
     }
-
-    //document.addEventListener('mousedown', handleClickClose);
-    //не совсем понял, как тут правильно указать сам элемент
     document.addEventListener('keydown', handleEscClose);
-
     return () => {
-      //document.removeEventListener('mousedown', handleClickClose);
       document.removeEventListener('keydown', handleEscClose);
     };
   }, [])

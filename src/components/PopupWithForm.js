@@ -26,6 +26,7 @@ function PopupWithForm (props) {
           noValidate>
             <h2 className="form__title">{props.title}</h2>
             <fieldset className="form__input-container">
+              {props.children}
               <button
               type="submit"
               className="form__submit-button"

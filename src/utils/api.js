@@ -60,8 +60,8 @@ class Api {
     .then(this._checkServerResponse)
   }
 
-  //add card
-  addCard(cardData) {
+  //new card
+  addNewCard(cardData) {
     return fetch(`${this._url}${this._cardsUrl}`, {
       method: 'POST',
       headers: this._headers,
@@ -82,22 +82,13 @@ class Api {
     .then(this._checkServerResponse)
   }
 
-  //like card
-  likeCard(cardData) {
-    return fetch(`${this._url}${this._cardsLikesUrl}${cardData._id}`, {
-      method: 'PUT',
-      headers: this._headers,
-    })
-    .then(this._checkServerResponse)
-  }
-
-  //unlike card
-  unlikeCard(cardData) {
-    return fetch(`${this._url}${this._cardsLikesUrl}${cardData._id}`, {
-      method: 'DELETE',
-      headers: this._headers,
-    })
-    .then(this._checkServerResponse)
+  //change like card status
+  changeLikeCardStatus(cardId, isLiked) {
+    return fetch(`${this._url}${this._cardsLikesUrl}${cardId}`, {
+        method: isLiked ? "PUT" : "DELETE",
+        headers: this._headers
+      })
+      .then(this._checkServerResponse)
   }
 
   //check response from server

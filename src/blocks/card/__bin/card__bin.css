@@ -1,5 +1,5 @@
 .card__bin {
-  display: flex;
+  display: none;
   flex-shrink: 0;
   background-image: url(../../../images/bin.svg);
   background-size: contain;

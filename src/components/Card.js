@@ -25,7 +25,7 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   }
 
   return(
-    <li className="card" key={card._id}>
+    <li className="card">
       <div className="card__image" style={{ backgroundImage: `url(${card.link})` }} onClick={handleCardClick}/>
       <button className={cardDeleteButtonClassName} type="button" onClick={handleDeleteCard}/>
       <h2 className="card__title">{card.name}</h2>

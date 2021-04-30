@@ -10,9 +10,9 @@ import ImagePopup from './ImagePopup'
 import Footer from "./Footer";
 
 function App() {
-  const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
@@ -47,10 +47,10 @@ function App() {
       .catch(err => console.log(err));
   }
 
-  function handleCardDelete(id) {
-    api.removeCard(id)
+  function handleCardDelete(card) {
+    api.removeCard(card)
       .then(() => {
-        setCards(cards.filter(item => item._id !== id));
+        setCards(cards.filter(item => item._id !== card._id));
       })
       .catch(err => console.log(err));
   }
@@ -86,15 +86,15 @@ function App() {
   }
 
   function handleEditProfileClick() {
-    setEditProfilePopupOpen(true);
+    setIsEditProfilePopupOpen(true);
   };
 
   function handleAddPlaceClick() {
-    setAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   };
 
   function handleEditAvatarClick() {
-    setEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   };
 
   function handleCardClick(card) {
@@ -102,9 +102,9 @@ function App() {
   }
 
   function closeAllPopups() {
-    setEditProfilePopupOpen(false);
-    setAddPlacePopupOpen(false);
-    setEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
     setSelectedCard(null)
   }
 

@@ -31,13 +31,15 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, cards, onCardClick, onC
 
       <section className="cards" aria-label="Cards">
         <ul className="gallery">
-          {cards.map((card) =>
+          {cards.map((card) => (
             <Card
               key={card._id}
               card={card}
               onCardClick={onCardClick}
               onCardLike={onCardLike}
-              onCardDelete={onCardDelete}/>)}
+              onCardDelete={onCardDelete}
+            />
+          ))}
         </ul>
       </section>
     </main>
